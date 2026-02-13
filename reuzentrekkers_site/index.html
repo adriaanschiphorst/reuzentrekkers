@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="li">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Reuzentrekkers — Mestreech</title>
+    <meta name="description" content="De Reuzentrekkers oet Mestreech opene sins 2013 de groete carnavalsoptoch mit de historische politiereuze, de Govies. Tradisie, Vrundsjap &amp; Vastelaovend.">
+    <meta property="og:title" content="De Reuzentrekkers — Mestreech">
+    <meta property="og:description" content="Sins 2013 trèkke veer de Mestreechse Govies door de straote van ós Mestreech.">
+    <meta property="og:image" content="afbeeldingen/hero-optocht.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+/* === DE REUZENTREKKERS — Tijdlijn-centraal ontwerp === */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --text: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #6b6b6b;
+    --bg: #faf9f6;
+    --bg-card: #ffffff;
+    --bg-tl: #f0eee8;
+    --accent: #7a3b2e;
+    --accent-light: #9b5040;
+    --carnival-gold: #c8961e;
+    --carnival-red: #b5312c;
+    --carnival-stripe: linear-gradient(90deg, #b5312c 0%, #b5312c 33.3%, #c8961e 33.3%, #c8961e 66.6%, #2a7d3f 66.6%, #2a7d3f 100%);
+    --warm: #8b6914;
+    --warm-bg: #fdf6e3;
+    --warm-border: #e8d5a3;
+    --border: #d4d0c8;
+    --border-light: #e8e5de;
+    --font-head: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --max-w: 900px;
+    --tl-line: #b8b0a0;
+    --tl-dot: var(--accent);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text); background: var(--bg); line-height: 1.8; font-size: 15.5px; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* === TAALSCHAKELAAR === */
+[data-lang="nl"] { display: none; }
+body.lang-nl [data-lang="nl"] { display: initial; }
+body.lang-nl [data-lang="ms"] { display: none; }
+div[data-lang="nl"], p[data-lang="nl"], section[data-lang="nl"], span[data-lang="nl"],
+blockquote[data-lang="nl"], h1[data-lang="nl"], h2[data-lang="nl"], h3[data-lang="nl"],
+li[data-lang="nl"], figcaption[data-lang="nl"], td[data-lang="nl"] { display: none; }
+body.lang-nl div[data-lang="nl"], body.lang-nl p[data-lang="nl"], body.lang-nl section[data-lang="nl"],
+body.lang-nl span[data-lang="nl"], body.lang-nl blockquote[data-lang="nl"],
+body.lang-nl h1[data-lang="nl"], body.lang-nl h2[data-lang="nl"], body.lang-nl h3[data-lang="nl"],
+body.lang-nl li[data-lang="nl"], body.lang-nl figcaption[data-lang="nl"],
+body.lang-nl td[data-lang="nl"] { display: block; }
+body.lang-nl div[data-lang="ms"], body.lang-nl p[data-lang="ms"], body.lang-nl section[data-lang="ms"],
+body.lang-nl span[data-lang="ms"], body.lang-nl blockquote[data-lang="ms"],
+body.lang-nl h1[data-lang="ms"], body.lang-nl h2[data-lang="ms"], body.lang-nl h3[data-lang="ms"],
+body.lang-nl li[data-lang="ms"], body.lang-nl figcaption[data-lang="ms"],
+body.lang-nl td[data-lang="ms"] { display: none; }
+body.lang-nl span[data-lang="nl"] { display: inline; }
+body.lang-nl span[data-lang="ms"] { display: none; }
+span[data-lang="nl"] { display: none; }
+span[data-lang="ms"] { display: inline; }
+body.lang-nl td[data-lang="nl"] { display: table-cell; }
+body.lang-nl td[data-lang="ms"] { display: none; }
+td[data-lang="nl"] { display: none; }
+td[data-lang="ms"] { display: table-cell; }
+
+/* === HEADER === */
+.site-header {
+    background: #fffdf9;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 1px 6px rgba(0,0,0,.06);
+    border-bottom: 1px solid var(--border-light);
+}
+.site-header::before {
+    content: ''; display: block; height: 3px;
+    background: var(--carnival-stripe);
+}
+.header-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;
+    display: flex; align-items: center; justify-content: space-between; height: 56px;
+}
+.site-title { font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--text); letter-spacing: .01em; }
+.site-title a { color: inherit; }
+.site-title a:hover { text-decoration: none; }
+.header-nav { display: flex; align-items: center; gap: .15rem; }
+.header-nav a {
+    color: var(--text-mid); font-size: .82rem; font-weight: 500;
+    padding: .4rem .7rem; border-radius: 4px; transition: all .2s;
+}
+.header-nav a:hover { background: rgba(0,0,0,.04); color: var(--text); text-decoration: none; }
+.lang-btn {
+    background: transparent; border: 1px solid var(--border); color: var(--text-mid);
+    padding: .3rem .6rem; border-radius: 4px; cursor: pointer; font-size: .78rem;
+    font-weight: 600; font-family: var(--font-body); letter-spacing: .04em;
+    transition: all .2s; margin-left: .5rem;
+}
+.lang-btn:hover { background: rgba(0,0,0,.03); color: var(--text); border-color: var(--text-light); }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: .5rem; }
+.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text-mid); margin: 5px 0; border-radius: 1px; transition: .2s; }
+
+/* === HERO === */
+.hero {
+    position: relative; height: 480px; overflow: hidden;
+    background-position: center 55%; background-size: cover;
+}
+.hero::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(44,74,46,.2) 0%, rgba(10,20,10,.65) 100%);
+}
+.hero-content {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 1;
+    padding: 2.5rem 2rem; color: white;
+    max-width: 1100px; margin: 0 auto;
+}
+.hero-content h1 {
+    font-family: var(--font-head); font-size: 2.8rem; font-weight: 900;
+    line-height: 1.1; margin-bottom: .4rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,.4);
+}
+.hero-content p { font-size: .95rem; opacity: .9; text-shadow: 0 1px 3px rgba(0,0,0,.3); max-width: 500px; }
+
+/* === EVENT STRIP === */
+.event-strip {
+    background: var(--warm-bg); color: var(--text); text-align: center;
+    padding: .65rem 1rem; font-size: .86rem; font-weight: 400;
+    letter-spacing: .01em; border-bottom: 1px solid var(--warm-border);
+}
+.event-strip strong { font-weight: 700; color: var(--carnival-red); }
+
+/* === SECTIONS === */
+.section { max-width: var(--max-w); margin: 0 auto; padding: 3rem 1.5rem; }
+.section + .section { border-top: 1px solid var(--border-light); }
+.section-title {
+    font-family: var(--font-head); font-size: 2rem; font-weight: 700;
+    color: var(--text); margin-bottom: .5rem; line-height: 1.2;
+}
+.section-subtitle {
+    color: var(--text-light); font-size: .95rem; margin-bottom: 2rem; max-width: 600px;
+}
+
+/* === INTRO GRID === */
+.intro-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    align-items: start; margin-bottom: 2rem;
+}
+.intro-card {
+    background: var(--bg-card); border: 1px solid var(--border-light);
+    border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.intro-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.intro-card-body { padding: 1.2rem 1.3rem; }
+.intro-card-body h3 { font-family: var(--font-head); font-size: 1.15rem; margin-bottom: .5rem; color: var(--text); }
+.intro-card-body p { font-size: .9rem; color: var(--text-mid); line-height: 1.7; }
+
+/* === FACTBOX === */
+.factbox {
+    background: var(--warm-bg); border: 1px solid var(--warm-border); border-radius: 8px;
+    padding: 1.5rem; margin: 2rem 0;
+}
+.factbox-title { font-family: var(--font-head); font-size: 1.1rem; color: var(--warm); margin-bottom: 1rem; font-weight: 700; }
+.factbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem 2rem; font-size: .9rem; }
+.factbox-grid dt { font-weight: 600; color: var(--text-mid); }
+.factbox-grid dd { color: var(--text); margin: 0; }
+
+/* === TIJDLIJN === */
+.tl-section {
+    background: var(--bg-tl); border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    padding: 3rem 0;
+}
+.tl-wrapper { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+.tl-header { text-align: center; margin-bottom: 2.5rem; }
+.tl-header h2 { font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--text); }
+.tl-header p { color: var(--text-light); font-size: .95rem; margin-top: .3rem; }
+
+.timeline { position: relative; padding: 1rem 0; }
+.timeline::before {
+    content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+    width: 2px; background: var(--tl-line); transform: translateX(-50%);
+}
+
+.tl-entry {
+    position: relative; display: grid;
+    grid-template-columns: 1fr 1fr; gap: 3rem;
+    margin-bottom: 3rem; align-items: start;
+}
+/* Dot on timeline */
+.tl-entry::before {
+    content: ''; position: absolute; left: 50%; top: 1.5rem;
+    width: 14px; height: 14px; background: var(--tl-dot); border: 3px solid var(--bg-tl);
+    border-radius: 50%; transform: translateX(-50%); z-index: 2;
+}
+.tl-year {
+    position: absolute; left: 50%; top: 1rem;
+    transform: translateX(-50%) translateY(-100%);
+    background: var(--text); color: white; font-weight: 700; font-size: .82rem;
+    padding: .2rem .7rem; border-radius: 12px; white-space: nowrap; z-index: 3;
+    margin-top: -.3rem;
+}
+
+.tl-text { padding-right: 1rem; }
+.tl-text h3 { font-family: var(--font-head); font-size: 1.05rem; margin-bottom: .4rem; color: var(--text); font-weight: 700; }
+.tl-text p { font-size: .88rem; color: var(--text-mid); line-height: 1.7; }
+.tl-text .tl-source { font-size: .75rem; color: var(--text-light); font-style: italic; margin-top: .3rem; }
+
+.tl-img {
+    border-radius: 6px; overflow: hidden; border: 1px solid var(--border);
+    background: var(--bg-card); box-shadow: 0 2px 8px rgba(0,0,0,.06); cursor: pointer;
+    transition: box-shadow .2s;
+}
+.tl-img:hover { box-shadow: 0 4px 16px rgba(0,0,0,.12); }
+.tl-img img { width: 100%; display: block; }
+.tl-img figcaption {
+    padding: .5rem .7rem; font-size: .75rem; color: var(--text-light);
+    text-align: center; font-style: italic;
+}
+
+/* Alternating: even entries swap text/image */
+.tl-entry.tl-alt .tl-text { order: 2; padding-right: 0; padding-left: 1rem; }
+.tl-entry.tl-alt .tl-img { order: 1; }
+
+/* === GOVIES DETAIL === */
+.prose { max-width: 700px; }
+.prose p { margin-bottom: 1rem; font-size: .95rem; line-height: 1.85; color: var(--text-mid); }
+.prose h3 { font-family: var(--font-head); font-size: 1.2rem; margin: 2rem 0 .7rem; color: var(--text); font-weight: 700; }
+.prose blockquote {
+    border-left: 3px solid var(--accent); padding: .8rem 1.2rem; margin: 1.5rem 0;
+    background: var(--bg-card); color: var(--text-mid); font-style: italic;
+    border-radius: 0 6px 6px 0;
+}
+.fig-inline {
+    float: right; margin: .2rem 0 1rem 1.5rem; max-width: 280px;
+    border: 1px solid var(--border-light); border-radius: 6px; overflow: hidden;
+    background: var(--bg-card); box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.fig-inline img { width: 100%; }
+.fig-inline figcaption { padding: .4rem .6rem; font-size: .75rem; color: var(--text-light); text-align: center; }
+.clearfix::after { content: ''; display: table; clear: both; }
+
+/* === GALLERY === */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; margin: 1.5rem 0; }
+.gallery-item {
+    border-radius: 6px; overflow: hidden; cursor: pointer; transition: transform .2s, box-shadow .2s;
+    border: 1px solid var(--border-light); background: var(--bg-card);
+}
+.gallery-item:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+.gallery-item img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.gallery-item figcaption { padding: .3rem .5rem; font-size: .7rem; color: var(--text-light); text-align: center; }
+
+/* === LIGHTBOX === */
+.lb { display:none; position:fixed; inset:0; background:rgba(0,0,0,.9); z-index:9999; align-items:center; justify-content:center; cursor:pointer; }
+.lb.active { display:flex; }
+.lb img { max-width:90vw; max-height:90vh; border-radius:4px; box-shadow: 0 4px 30px rgba(0,0,0,.5); }
+.lb-close { position:absolute; top:1rem; right:1.5rem; color:white; font-size:1.8rem; cursor:pointer; z-index:10000; background:rgba(255,255,255,.1); border:none; width:44px; height:44px; display:flex; align-items:center; justify-content:center; border-radius:50%; }
+.lb-close:hover { background:rgba(255,255,255,.2); }
+
+/* === CONTACT === */
+.contact-wrap {
+    background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px;
+    padding: 2rem; max-width: 560px; box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.cform { display: flex; flex-direction: column; gap: .8rem; }
+.fg label { display: block; font-size: .82rem; font-weight: 600; margin-bottom: .25rem; color: var(--text-mid); }
+.fg input, .fg textarea {
+    width: 100%; padding: .6rem .8rem; border: 1px solid var(--border); border-radius: 6px;
+    font-family: var(--font-body); font-size: .9rem; background: var(--bg); color: var(--text);
+    transition: border-color .2s;
+}
+.fg input:focus, .fg textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(44,74,46,.1); }
+.fg textarea { min-height: 100px; resize: vertical; }
+.btn-send {
+    display: inline-block; padding: .6rem 1.5rem; background: var(--text); color: white;
+    font-weight: 600; font-size: .88rem; border: none; border-radius: 6px;
+    cursor: pointer; transition: background .2s; align-self: flex-start;
+}
+.btn-send:hover { background: var(--text-mid); }
+
+/* === FOOTER === */
+.site-footer {
+    background: #fffdf9; color: var(--text-light); padding: 2rem 1.5rem;
+    text-align: center; font-size: .82rem; margin-top: 0;
+    border-top: 1px solid var(--border-light);
+}
+.site-footer::after {
+    content: ''; display: block; height: 3px; margin-top: 1.5rem;
+    background: var(--carnival-stripe);
+}
+.site-footer strong { color: var(--text); }
+.site-footer a { color: var(--text-light); }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .hero { height: 300px; }
+    .hero-content h1 { font-size: 2rem; }
+    .intro-grid { grid-template-columns: 1fr; }
+    .factbox-grid { grid-template-columns: 1fr; }
+    .timeline::before { left: 1.2rem; }
+    .tl-entry { grid-template-columns: 1fr; gap: 1rem; padding-left: 3rem; }
+    .tl-entry::before { left: 1.2rem; top: .3rem; }
+    .tl-year { left: 1.2rem; transform: translateX(-50%) translateY(-100%); font-size: .75rem; }
+    .tl-entry.tl-alt .tl-text { order: 1; padding-left: 0; }
+    .tl-entry.tl-alt .tl-img { order: 2; }
+    .tl-text { padding-right: 0; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .fig-inline { float: none; max-width: 100%; margin: 1rem 0; }
+    .section { padding: 2rem 1rem; }
+    .section-title { font-size: 1.6rem; }
+}
+@media (max-width: 480px) {
+    .header-nav { display: none; position: absolute; top: 59px; left: 0; right: 0; background: #fffdf9; flex-direction: column; padding: .5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,.08); border-top: 1px solid var(--border-light); }
+    .header-nav.open { display: flex; }
+    .header-nav a { padding: .7rem 1.5rem; font-size: .88rem; }
+    .nav-toggle { display: block; }
+    .hero { height: 240px; }
+    .hero-content h1 { font-size: 1.6rem; }
+    .hero-content p { font-size: .82rem; }
+    .gallery { grid-template-columns: 1fr 1fr; }
+}
+    </style>
+</head>
+<body>
+
+<!-- === HEADER === -->
+<header class="site-header">
+    <div class="header-inner">
+        <div class="site-title"><a href="#top">De Reuzentrekkers</a></div>
+        <nav class="header-nav" id="navMenu">
+            <a href="#govies">De Govies</a>
+            <a href="#tijdlijn">
+                <span data-lang="ms">Tiedelijn</span>
+                <span data-lang="nl">Tijdlijn</span>
+            </a>
+            <a href="#over">
+                <span data-lang="ms">Wae Zien Veer</span>
+                <span data-lang="nl">Over Ons</span>
+            </a>
+            <a href="#fotos">Foto's</a>
+            <a href="#contact">Contact</a>
+            <button class="lang-btn" id="langSwitch" title="Wissel van taal">NL</button>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</header>
+
+<!-- === HERO === -->
+<div class="hero" id="top" style="background-image: url('afbeeldingen/hero-optocht.jpg')">
+    <div class="hero-content">
+        <h1>De Reuzentrekkers</h1>
+        <p data-lang="ms">Sins 2013 trèkke veer de Mestreechse Govies door de straote van ós stad</p>
+        <p data-lang="nl">Sinds 2013 trekken wij de Maastrichtse Govies door de straten van onze stad</p>
+    </div>
+</div>
+
+<!-- === EVENT STRIP === -->
+<div class="event-strip">
+    <span data-lang="ms"><strong>Volgende optoch:</strong> 15 februari 2026 — Carnavalszundig, start um 13:33 &middot; Wijcker Brugstraat → Kesselskade → Vrijthof</span>
+    <span data-lang="nl"><strong>Volgende optocht:</strong> 15 februari 2026 — Carnavalszondag, start om 13:33 &middot; Wijcker Brugstraat → Kesselskade → Vrijthof</span>
+</div>
+
+<!-- === DE GOVIES — INTRO === -->
+<section class="section" id="govies">
+    <h2 class="section-title">De Govies</h2>
+    <p class="section-subtitle" data-lang="ms">De Mestreechse politiereuze — al bijna 100 jaor 't gezich van 't carnaval</p>
+    <p class="section-subtitle" data-lang="nl">De Maastrichtse politiereuzen — al bijna 100 jaar het gezicht van het carnaval</p>
+
+    <div class="intro-grid">
+        <div class="intro-card">
+            <img src="afbeeldingen/reus-brug.jpg" alt="Govie op de Sint Servaasbrug">
+            <div class="intro-card-body">
+                <h3 data-lang="ms">Imposante figure</h3>
+                <h3 data-lang="nl">Imposante figuren</h3>
+                <p data-lang="ms">De twie Govies zien circa vijf meter hoeg, gebouwd op ein staole frame. Ze drage 't actuele tenue van de Nationale Politie, compleet mit neon-gaele accente. Edere reus haet vier trèkkers neudig um veuruit te bewaege.</p>
+                <p data-lang="nl">De twee Govies zijn circa vijf meter hoog, gebouwd op een stalen frame. Ze dragen het actuele tenue van de Nationale Politie, compleet met neon-gele accenten. Elke reus heeft vier trekkers nodig om voort te bewegen.</p>
+            </div>
+        </div>
+        <div class="intro-card">
+            <img src="afbeeldingen/reuzen-politiebureau.jpg" alt="Govies bij het politiebureau">
+            <div class="intro-card-body">
+                <h3 data-lang="ms">'t Uniform</h3>
+                <h3 data-lang="nl">Het uniform</h3>
+                <p data-lang="ms">De Govies gaon mit hunne tied mèt. In 1935 kreege ze ein witte helm, vandaag drage ze 't nujste politie-tenue. Ze zien altied aangekleid nao 't actuele uniform van de politie. En de trèkkers? Veer drage <strong>boevepakke</strong>.</p>
+                <p data-lang="nl">De Govies gaan met hun tijd mee. In 1935 kregen ze een witte helm, vandaag dragen ze het nieuwste politie-tenue. Ze zijn altijd aangekleed naar het actuele uniform van de politie. En de trekkers? Wij dragen <strong>boevenpakken</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="factbox">
+        <div class="factbox-title" data-lang="ms">Feite op ein riejtje</div>
+        <div class="factbox-title" data-lang="nl">Feiten op een rij</div>
+        <dl class="factbox-grid">
+            <dt>Govies</dt>
+            <dd data-lang="ms">2 politiereuze, ±5 meter hoeg</dd>
+            <dd data-lang="nl">2 politiereuzen, ±5 meter hoog</dd>
+            <dt data-lang="ms">Trèkkers per reus</dt>
+            <dt data-lang="nl">Trekkers per reus</dt>
+            <dd>4</dd>
+            <dt>Kostuum</dt>
+            <dd data-lang="ms">Boevepakke (zwart-wit gestreep)</dd>
+            <dd data-lang="nl">Boevenpakken (zwart-wit gestreept)</dd>
+            <dt>Optoch</dt>
+            <dd data-lang="ms">De Boonte Störm (zundigs)</dd>
+            <dd data-lang="nl">De Boonte Störm (zondags)</dd>
+            <dt data-lang="ms">Eigenaar</dt>
+            <dt data-lang="nl">Eigenaar</dt>
+            <dd>De Tempeleers</dd>
+            <dt>Maker</dt>
+            <dd>Herman van Elteren (1928–2023)</dd>
+        </dl>
+    </div>
+</section>
+
+<!-- === TIJDLIJN === -->
+<section class="tl-section" id="tijdlijn">
+    <div class="tl-wrapper">
+        <div class="tl-header">
+            <h2 data-lang="ms">Bijna 100 jaor Govies</h2>
+            <h2 data-lang="nl">Bijna 100 jaar Govies</h2>
+            <p data-lang="ms">Van de ierste vermelding in 1928 tot de Reuzentrekkers van vandaag</p>
+            <p data-lang="nl">Van de eerste vermelding in 1928 tot de Reuzentrekkers van vandaag</p>
+        </div>
+
+        <div class="timeline">
+
+            <!-- 1928 -->
+            <div class="tl-entry">
+                <span class="tl-year">1928</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">De ierste Govies</h3>
+                    <h3 data-lang="nl">De eerste Govies</h3>
+                    <p data-lang="ms">Nao jaore zonder optoch waert 't carnaval in Mestreech groets gevierd. 't Limburgsch Dagblad en de NRC mèlde "twie reusachtige verkeersagente" die de stemming d'r mèteen inbraachte. Ouch ein vijftal angere groete poppe — Mestreechse type in versjeije kleure — lepe mèt.</p>
+                    <p data-lang="nl">Na jaren zonder optocht wordt carnaval in Maastricht groots gevierd. Het Limburgsch Dagblad en de NRC melden "twee reusachtige verkeersagenten" die de stemming er meteen inbrachten. Ook een vijftal andere grote poppen — Maastrichtse typen in verschillende kleuren — liepen mee.</p>
+                    <div class="tl-source">Limburgsch Dagblad &amp; NRC, 21 februari 1928</div>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/historisch/govies-20-februari-1928-1e-optocht-in-jaren-limburgsch-dagblad-21.02.1928.jpg" alt="Govies 1928 - Limburgsch Dagblad">
+                    <figcaption>Limburgsch Dagblad, 21-02-1928</figcaption>
+                </figure>
+            </div>
+
+            <!-- 1929 -->
+            <div class="tl-entry tl-alt">
+                <span class="tl-year">1929</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">Govies bij de Prinseintoch</h3>
+                    <h3 data-lang="nl">Govies bij de Prinsintocht</h3>
+                    <p data-lang="ms">Ouch tiedes de bitterkawwe carnavalsdaag van 1929 zien de Govies d'rbij. Ze opene opnui de stoot bij 't inhale van de Prins, zo mèldt 't Limburgs Dagblad.</p>
+                    <p data-lang="nl">Ook tijdens de bitterkoude carnavalsdagen van 1929 zijn de Govies erbij. Ze openen opnieuw de stoet bij het inhalen van de Prins, zo meldt het Limburgs Dagblad.</p>
+                    <div class="tl-source">Limburgs Dagblad, 12 februari 1929</div>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/historisch/govies-gaan-voorop-bij-inhalen-prins-limb.-dagbl.-12-februari-1929.jpg" alt="Govies bij inhalen Prins, 1929">
+                    <figcaption>Limburgs Dagblad, 12-02-1929</figcaption>
+                </figure>
+            </div>
+
+            <!-- 1933 -->
+            <div class="tl-entry">
+                <span class="tl-year">1933</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">Op de Wilhelminabrug</h3>
+                    <h3 data-lang="nl">Op de Wilhelminabrug</h3>
+                    <p data-lang="ms">In de Sumatra Post in Nederlands-Indië versjient eine foto van de Govies op de Wilhelminabrug. De Limburger Koerier toent ein reusachtig Mooswief, mit op de achtergrond ein twiede mannelijke reus. 't Mestreechse carnaval is zelfs in Indië nuuws.</p>
+                    <p data-lang="nl">In de Sumatra Post in Nederlands-Indië verschijnt een foto van de Govies op de Wilhelminabrug. De Limburger Koerier toont een reusachtig Mooswief, met op de achtergrond een tweede mannelijke reus. Het Maastrichtse carnaval is zelfs in Indië nieuws.</p>
+                    <div class="tl-source">Sumatra Post, 13 maart 1933</div>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/historisch/govies-op-wilhelminabrug-foto-sumatrapost-13-maart-1933.jpg" alt="Govies op de Wilhelminabrug, 1933">
+                    <figcaption>Sumatra Post, 13-03-1933</figcaption>
+                </figure>
+            </div>
+
+            <!-- 1935 -->
+            <div class="tl-entry tl-alt">
+                <span class="tl-year">1935</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">Nui uniform mit witte helm</h3>
+                    <h3 data-lang="nl">Nieuw uniform met witte helm</h3>
+                    <p data-lang="ms">De verkeerspolitie haet ein anger uniform gekrege, mit eine <strong>witte helm</strong> — en de carnavalsgovies ouch! De Limburger Koerier mèldt dat de Govies "in 't nui gesjtóke" zien. 't Soerabaijasch Handelsblad plaots foto's van de Mestreechse reuze.</p>
+                    <p data-lang="nl">De verkeerspolitie heeft een ander uniform gekregen, met een <strong>witte helm</strong> — en de carnavalsgovies ook! De Limburger Koerier meldt dat de Govies "in het nieuw gestoken" zijn. Het Soerabaijasch Handelsblad plaatst foto's van de Maastrichtse reuzen.</p>
+                    <div class="tl-source">Limburger Koerier &amp; Soerabaijasch Handelsblad, 1935</div>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/historisch/govies-nieuwe-vormgeving-met-witte-helm-limb.-koerier-5-maart-1935.jpg" alt="Govies met witte helm, 1935">
+                    <figcaption>Limburger Koerier, 05-03-1935</figcaption>
+                </figure>
+            </div>
+
+            <!-- 1937 -->
+            <div class="tl-entry">
+                <span class="tl-year">1937</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">Truk vaan de Veerdaogse</h3>
+                    <h3 data-lang="nl">Terug van de Vierdaagse</h3>
+                    <p data-lang="ms">De sportvereniging van de gemeintepolitie waert op de hak genóme in de optoch: eine persiflage op hun deelname aan de Vierdaagse van Nijmegen, zo toent de Limburger Koerier. Typisch Mestreechse humor.</p>
+                    <p data-lang="nl">De sportvereniging van de gemeentepolitie wordt op de hak genomen in de optocht: een persiflage op hun deelname aan de Vierdaagse van Nijmegen, zo toont de Limburger Koerier. Typisch Maastrichtse humor.</p>
+                    <div class="tl-source">Limburger Koerier, 8 februari 1937</div>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/historisch/govies-echte-terug-van-de-vierdaagse-limb.-koerier-8-februari-1937.jpg" alt="Vierdaagse-grap, 1937">
+                    <figcaption>Limburger Koerier, 08-02-1937</figcaption>
+                </figure>
+            </div>
+
+            <!-- Jaren '50 -->
+            <div class="tl-entry tl-alt">
+                <span class="tl-year" data-lang="ms">Jaore '50</span>
+                <span class="tl-year" data-lang="nl">Jaren '50</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">De twiede lichting Govies</h3>
+                    <h3 data-lang="nl">De tweede lichting Govies</h3>
+                    <p data-lang="ms">De aaje Govies oet de jaore '20 hebbe de oorlog warsjienluk neet euverleef. Kunstenaar <strong>Herman van Elteren</strong>, student aan de Kunstnijverheidssjool en de Jan van Eyck Academie, maak nuje, groetere reuze. Forumleden herinnere zich hoe "angstaanjagend overweldigend groet" ze ware.</p>
+                    <p data-lang="nl">De oude Govies uit de jaren '20 hebben de oorlog waarschijnlijk niet overleefd. Kunstenaar <strong>Herman van Elteren</strong>, student aan de Kunstnijverheidsschool en de Jan van Eyck Academie, maakt nieuwe, grotere reuzen. Forumleden herinneren zich hoe "angstaanjagend overweldigend groot" ze waren.</p>
+                    <div class="tl-source">MestreechOnline-forum (Ingrid M.H. Evers, Annefine, Wigo)</div>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/historisch/maastricht-1954-02-28-960-.jpg" alt="Govies 1954">
+                    <figcaption>Mestreech, 28-02-1954</figcaption>
+                </figure>
+            </div>
+
+            <!-- 1955 -->
+            <div class="tl-entry">
+                <span class="tl-year">1955</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">Govies in de snieë</h3>
+                    <h3 data-lang="nl">Govies in de sneeuw</h3>
+                    <p data-lang="ms">Ouch in de snieë gaon de Govies d'rop oet. Eine prachtfoto luit de reuze zeen op 't plein mit ein besnijdj Mestreech op de achtergrond — vastelaovend geit door, weer of gein weer.</p>
+                    <p data-lang="nl">Ook in de sneeuw gaan de Govies erop uit. Een prachtfoto laat de reuzen zien op het plein met een besneeuwd Maastricht op de achtergrond — vastelaovend gaat door, weer of geen weer.</p>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/historisch/maastricht-1955-02-22-1280-.jpg" alt="Govies in de sneeuw, 1955">
+                    <figcaption>Mestreech, 22-02-1955</figcaption>
+                </figure>
+            </div>
+
+            <!-- 1958 -->
+            <div class="tl-entry tl-alt">
+                <span class="tl-year">1958</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">De Govies in de jaore '50</h3>
+                    <h3 data-lang="nl">De Govies in de jaren '50</h3>
+                    <p data-lang="ms">De nuje, groetere Govies van Herman van Elteren zien inmiddels ein vertrouwd gezich in de optoch. Ze waere getrokke op ein staole frame — zwaorder en imposanter es de aaje versies.</p>
+                    <p data-lang="nl">De nieuwe, grotere Govies van Herman van Elteren zijn inmiddels een vertrouwd gezicht in de optocht. Ze worden getrokken op een stalen frame — zwaarder en imposanter dan de oude versies.</p>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/historisch/maastricht-1958-02-16-1280-.jpg" alt="Govies 1958">
+                    <figcaption>Mestreech, 16-02-1958</figcaption>
+                </figure>
+            </div>
+
+            <!-- 1961 -->
+            <div class="tl-entry">
+                <span class="tl-year">1961</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">Ierste kleurefoto</h3>
+                    <h3 data-lang="nl">Eerste kleurenfoto</h3>
+                    <p data-lang="ms">Eine van de ierste kleurefoto's van de Govies. De trèkkers zien dujdelik te zeen ónger de reuze — precies wie 't hujdige Reuzentrekkers nóg steets doon.</p>
+                    <p data-lang="nl">Een van de eerste kleurenfoto's van de Govies. De trekkers zijn duidelijk te zien onder de reuzen — precies zoals de huidige Reuzentrekkers het nog steeds doen.</p>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/historisch/maastricht-1961-490-.jpg" alt="Govies 1961 kleur">
+                    <figcaption>Mestreech, 1961 — ierste kleurefoto</figcaption>
+                </figure>
+            </div>
+
+            <!-- 1992 -->
+            <div class="tl-entry tl-alt">
+                <span class="tl-year">1992</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">Ierste vrouwelike govie</h3>
+                    <h3 data-lang="nl">Eerste vrouwelijke govie</h3>
+                    <p data-lang="ms">Veur 't iers leup d'r eine vrouw es trèkker ónger ein govie mit — eine primeur in de gesjiechte van de reuze. De 'dame' is good te herkenne: borste én ein snor! <small>(Bron: MestreechOnline-forum)</small></p>
+                    <p data-lang="nl">Voor het eerst liep er een vrouw als trekker onder een govie mee — een primeur in de geschiedenis van de reuzen. De 'dame' is goed te herkennen: borsten én een snor! <small>(Bron: MestreechOnline-forum)</small></p>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/historisch/govie-vrouwelijk-1992.jpg" alt="Vrouwelijke govie 1992">
+                    <figcaption data-lang="ms">De vrouwelike govie, ±1992</figcaption>
+                    <figcaption data-lang="nl">De vrouwelijke govie, ±1992</figcaption>
+                </figure>
+            </div>
+
+            <!-- ±2013 -->
+            <div class="tl-entry">
+                <span class="tl-year">±2013</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">De Reuzentrekkers waere gebaore!</h3>
+                    <h3 data-lang="nl">De Reuzentrekkers worden geboren!</h3>
+                    <p data-lang="ms">Eine groep vrunde nump de verantweurdelikheid op zich um de Govies te trèkke en de zundigse optoch te opene. In boevepakke, uiteraard. Tradisie, vrundsjap en Bourgondische gezèlligheid in ein.</p>
+                    <p data-lang="nl">Een groep vrienden neemt de verantwoordelijkheid op zich om de Govies te trekken en de zondagse optocht te openen. In boevenpakken, uiteraard. Traditie, vriendschap en Bourgondische gezelligheid in één.</p>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/groep-reus-straat.jpg" alt="De Reuzentrekkers">
+                    <figcaption data-lang="ms">De Reuzentrekkers mit ein Govie</figcaption>
+                    <figcaption data-lang="nl">De Reuzentrekkers met een Govie</figcaption>
+                </figure>
+            </div>
+
+            <!-- ±2014 Flikken Maastricht -->
+            <div class="tl-entry tl-alt">
+                <span class="tl-year">±2014</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">Flikken Maastricht &amp; de Govies</h3>
+                    <h3 data-lang="nl">Flikken Maastricht &amp; de Govies</h3>
+                    <p data-lang="ms">Volges ein interview in Dagblad De Limburger mit coördinator Erik van Rijsselt zörge TROS en Eyeworks (producente van <em>Flikken Maastricht</em>) veur sponsoring van nuje uniformme veur de reuze. <small>(Bron: MestreechOnline-forum / Dagblad De Limburger)</small></p>
+                    <p data-lang="nl">Volgens een interview in Dagblad De Limburger met coördinator Erik van Rijsselt zorgen TROS en Eyeworks (producenten van <em>Flikken Maastricht</em>) voor sponsoring van nieuwe uniformen voor de reuzen. <small>(Bron: MestreechOnline-forum / Dagblad De Limburger)</small></p>
+                </div>
+            </div>
+
+            <!-- 2022–nu -->
+            <div class="tl-entry">
+                <span class="tl-year">2022–nu</span>
+                <div class="tl-text">
+                    <h3 data-lang="ms">Sterker es ooit</h3>
+                    <h3 data-lang="nl">Sterker dan ooit</h3>
+                    <p data-lang="ms">Nao corona laope de Govies weer! Edere carnavalszundig opene veer de optoch — trotser es ooit, in 't nujste tenue van de Nationale Politie.</p>
+                    <p data-lang="nl">Na corona lopen de Govies weer! Elke carnavalszondag openen we de optocht — trotser dan ooit, in het nieuwste tenue van de Nationale Politie.</p>
+                </div>
+                <figure class="tl-img" onclick="openLB(this)">
+                    <img src="afbeeldingen/groep-reus-2025.jpg" alt="Reuzentrekkers 2025">
+                    <figcaption>Groepsfoto 2025</figcaption>
+                </figure>
+            </div>
+
+        </div><!-- /timeline -->
+    </div>
+</section>
+
+<!-- === WAE ZIEN VEER === -->
+<section class="section" id="over">
+    <h2 class="section-title">
+        <span data-lang="ms">Wae zien veer</span>
+        <span data-lang="nl">Wie zijn wij</span>
+    </h2>
+
+    <div class="prose clearfix">
+        <figure class="fig-inline">
+            <img src="afbeeldingen/groep-prins.jpg" alt="De Reuzentrekkers met de Prins">
+            <figcaption data-lang="ms">Mit de Prins van Mestreech</figcaption>
+            <figcaption data-lang="nl">Met de Prins van Maastricht</figcaption>
+        </figure>
+
+        <p data-lang="ms">
+            <strong>De Reuzentrekkers</strong> zien eine vrundegroep oet Mestreech die sins ±2013 de eer haet um de groete zundigse carnavalsoptoch — de <em>Boonte Störm</em> — te opene. In boevepakke — zwart-wit gestreepte galeiboksverklieëring — trèkke veer de historische politiereuze, de <em>Govies</em>, door de straote van de stad, van Wyck euver de Sint Servaasbrug en de Kesselskade tot aan 't Vrijthof.
+        </p>
+        <p data-lang="nl">
+            <strong>De Reuzentrekkers</strong> zijn een vriendengroep uit Maastricht die sinds ±2013 de eer heeft om de grote zondagse carnavalsoptocht — de <em>Boonte Störm</em> — te openen. In boevenpakken — zwart-wit gestreepte galeiboksverkleding — trekken wij de historische politiereuzen, de <em>Govies</em>, door de straten van de stad, van Wyck over de Sint Servaasbrug en de Kesselskade tot aan het Vrijthof.
+        </p>
+
+        <p data-lang="ms">
+            Veer zien gein offiesjele vereiniging mit statute of vergaderinge. Veer zien eine groep miense die van Mestreech hawt, van vastelaovend hawt, en van ein hawt. De reuze bringe ós same — èlk jaor opnui.
+        </p>
+        <p data-lang="nl">
+            We zijn geen officiële vereniging met statuten of vergaderingen. We zijn een groep mensen die van Maastricht houdt, van vastelaovend houdt, en van elkaar houdt. De reuzen brengen ons samen — elk jaar opnieuw.
+        </p>
+
+        <blockquote data-lang="ms">"De Govies bringe ós same — en dat is precies wie 't huurt."</blockquote>
+        <blockquote data-lang="nl">"De Govies brengen ons samen — en dat is precies hoe het hoort."</blockquote>
+
+        <p data-lang="ms">
+            De reuze zien in 't bezit van <strong>De Tempeleers</strong>, de stadscarnavalsvereniging die 't Mestreechse vastelaovend organiseert. Bij de groete zundigse optoch laope de Govies veuropp.
+        </p>
+        <p data-lang="nl">
+            De reuzen zijn in het bezit van <strong>De Tempeleers</strong>, de stadscarnavalsvereniging die het Maastrichtse vastelaovend organiseert. Bij de grote zondagse optocht lopen de Govies voorop.
+        </p>
+    </div>
+</section>
+
+<!-- === FOTOGALERIJ === -->
+<section class="section" id="fotos">
+    <h2 class="section-title">Fotogalerij</h2>
+
+    <div class="gallery">
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/trekkers-actie.jpg" alt="In actie" loading="lazy">
+            <figcaption data-lang="ms">In actie</figcaption>
+            <figcaption data-lang="nl">In actie</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/reus-straat-close.jpg" alt="Govie van dichtbij" loading="lazy">
+            <figcaption>Van dichtbij</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/trekkers-klaar.jpg" alt="Klaar voor de start" loading="lazy">
+            <figcaption data-lang="ms">Klaor veur de start</figcaption>
+            <figcaption data-lang="nl">Klaar voor de start</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/trekkers-reus-detail.jpg" alt="Detail" loading="lazy">
+            <figcaption data-lang="ms">Van ongeraf</figcaption>
+            <figcaption data-lang="nl">Van onderaf</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/reuzen-nacht.jpg" alt="Bij nacht" loading="lazy">
+            <figcaption data-lang="ms">Bij nach</figcaption>
+            <figcaption data-lang="nl">Bij nacht</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/reuzen-kar.jpg" alt="Het stalen frame" loading="lazy">
+            <figcaption data-lang="ms">'t Staole frame</figcaption>
+            <figcaption data-lang="nl">Het stalen frame</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/pauze-zon.jpg" alt="Pauze" loading="lazy">
+            <figcaption data-lang="ms">Welverdeende pauze</figcaption>
+            <figcaption data-lang="nl">Welverdiende pauze</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/pauze-clown.jpg" alt="Achter de schermen" loading="lazy">
+            <figcaption data-lang="ms">Achter de sjèrme</figcaption>
+            <figcaption data-lang="nl">Achter de schermen</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/selfie-brand.jpg" alt="Selfie" loading="lazy">
+            <figcaption>Alaaf!</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/reuzen-muur.jpg" alt="Govies in rust" loading="lazy">
+            <figcaption data-lang="ms">De Govies in ruste</figcaption>
+            <figcaption data-lang="nl">De Govies in rust</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/pauze-telefoon.jpg" alt="Pauze" loading="lazy">
+            <figcaption data-lang="ms">Eave pauze</figcaption>
+            <figcaption data-lang="nl">Even pauze</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/historisch-zwartwit.jpg" alt="Historisch" loading="lazy">
+            <figcaption data-lang="ms">Vreuger tiede</figcaption>
+            <figcaption data-lang="nl">Vroeger tijden</figcaption>
+        </div>
+    </div>
+
+    <h3 style="font-family: var(--font-head); margin: 2.5rem 0 1rem; font-size: 1.15rem; color: var(--text);" data-lang="ms">Historische krantefoto's</h3>
+    <h3 style="font-family: var(--font-head); margin: 2.5rem 0 1rem; font-size: 1.15rem; color: var(--text);" data-lang="nl">Historische krantenfoto's</h3>
+    <div class="gallery">
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/historisch/govies-20-februari-1928-1e-optocht-in-jaren-nrc-21.02.1928..jpg" alt="Govies 1928 NRC" loading="lazy">
+            <figcaption>NRC, 21-02-1928</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/historisch/govie-mooswief-foto-limb.-koerier-5-maart-1933.jpg" alt="Mooswief 1933" loading="lazy">
+            <figcaption>Limburger Koerier, 05-03-1933</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/historisch/govie-mooswief-sumatra-post-1-april-1935.jpg" alt="Mooswief 1935" loading="lazy">
+            <figcaption>Sumatra Post, 01-04-1935</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/historisch/govie-reus-soerabaijasch-handelsblad-10-april-1935.jpg" alt="Govie reus 1935" loading="lazy">
+            <figcaption>Soerabaijasch Handelsblad, 10-04-1935</figcaption>
+        </div>
+    </div>
+</section>
+
+<!-- === CONTACT === -->
+<section class="section" id="contact">
+    <h2 class="section-title">Contact</h2>
+
+    <p data-lang="ms" style="margin-bottom:1.5rem; color:var(--text-mid);">
+        Wils te mieër weite euver de Reuzentrekkers? Hèbs te eine vraog, ein aajd verhaal euver de Govies, of gewoen zin um 's te klappe? Sjtuur ós ein berichtje of mail nao <a href="mailto:info@reuzentrekkers.nl">info@reuzentrekkers.nl</a>.
+    </p>
+    <p data-lang="nl" style="margin-bottom:1.5rem; color:var(--text-mid);">
+        Wil je meer weten over de Reuzentrekkers? Heb je een vraag, een oud verhaal over de Govies, of gewoon zin om eens te kletsen? Stuur ons een berichtje of mail naar <a href="mailto:info@reuzentrekkers.nl">info@reuzentrekkers.nl</a>.
+    </p>
+
+    <div class="contact-wrap" style="text-align:center;">
+        <a href="mailto:info@reuzentrekkers.nl?subject=Berich%20via%20reuzentrekkers.nl" class="btn-send" style="display:inline-block; text-decoration:none; padding: .9rem 2.5rem; font-size:1.05rem;">
+            <span data-lang="ms">✉ Mail ós</span>
+            <span data-lang="nl">✉ Mail ons</span>
+        </a>
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLB()">
+    <button class="lb-close" aria-label="Sluiten">&times;</button>
+    <img id="lbImg" src="" alt="">
+</div>
+
+<!-- === FOOTER === -->
+<footer class="site-footer">
+    <p><strong>De Reuzentrekkers</strong> &mdash; Mestreech &middot; Sins 2013</p>
+    <p>&copy; 2026 De Reuzentrekkers. <span data-lang="ms">Alle rechte veurbehawwe.</span><span data-lang="nl">Alle rechten voorbehouden.</span></p>
+</footer>
+
+<script>
+// Mobile nav
+const toggle = document.getElementById('navToggle');
+const menu = document.getElementById('navMenu');
+toggle.addEventListener('click', () => menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 60, behavior: 'smooth' });
+    });
+});
+
+// Lightbox
+function openLB(el) {
+    const i = el.querySelector('img');
+    document.getElementById('lbImg').src = i.src;
+    document.getElementById('lbImg').alt = i.alt;
+    document.getElementById('lb').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeLB() {
+    document.getElementById('lb').classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+
+// === TAALSCHAKELAAR ===
+const langBtn = document.getElementById('langSwitch');
+let currentLang = localStorage.getItem('reuzentrekkers-lang') || 'ms';
+
+function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('reuzentrekkers-lang', lang);
+    if (lang === 'nl') {
+        document.body.classList.add('lang-nl');
+        langBtn.textContent = 'MS';
+        langBtn.title = 'Schakel naar Mestreechs';
+    } else {
+        document.body.classList.remove('lang-nl');
+        langBtn.textContent = 'NL';
+        langBtn.title = 'Schakel naar Nederlands';
+    }
+}
+setLang(currentLang);
+langBtn.addEventListener('click', () => setLang(currentLang === 'ms' ? 'nl' : 'ms'));
+</script>
+</body>
+</html>
