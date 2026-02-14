@@ -1,2 +1,14 @@
 [build]
   publish = "public"
+
+# Production branch
+[context.production]
+  branch = "main"
+
+# Staging branch - gets its own deploy URL
+[context.staging]
+  branch = "staging"
+
+# Branch deploys enabled
+[context.branch-deploy]
+  # Staging krijgt eigen URL: staging--reuzentrekkers.netlify.app
