@@ -133,6 +133,7 @@ td[data-lang="ms"] { display: table-cell; }
     letter-spacing: .01em; border-bottom: 1px solid var(--warm-border);
 }
 .event-strip strong { font-weight: 700; color: var(--carnival-red); }
+.countdown { display: inline-block; background: var(--carnival-red); color: white; padding: .2rem .6rem; border-radius: 4px; font-weight: 700; margin-left: .5rem; }
 
 /* === SECTIONS === */
 .section { max-width: var(--max-w); margin: 0 auto; padding: 3rem 1.5rem; }
@@ -360,8 +361,8 @@ td[data-lang="ms"] { display: table-cell; }
 
 <!-- === EVENT STRIP === -->
 <div class="event-strip">
-    <span data-lang="ms"><strong>Volgende optoch:</strong> 7 februari 2027 — Carnavalszundig, start um 13:33 &middot; Wijcker Brugstraat → Kesselskade → Vrijthof</span>
-    <span data-lang="nl"><strong>Volgende optocht:</strong> 7 februari 2027 — Carnavalszondag, start om 13:33 &middot; Wijcker Brugstraat → Kesselskade → Vrijthof</span>
+    <span data-lang="ms"><strong>Volgende optoch:</strong> 7 februari 2027 <span class="countdown" id="countdown"></span> — Carnavalszundig, start um 13:33</span>
+    <span data-lang="nl"><strong>Volgende optocht:</strong> 7 februari 2027 <span class="countdown" id="countdown-nl"></span> — Carnavalszondag, start om 13:33</span>
 </div>
 
 <!-- === DE GOVIES — INTRO === -->
@@ -677,136 +678,91 @@ td[data-lang="ms"] { display: table-cell; }
     <h2 class="section-title">Fotogalerij</h2>
 
     <div class="gallery">
+        <!-- Recent -->
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-1.jpg" alt="Reuzentrekkers" loading="lazy">
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-2.jpg" alt="Reuzentrekkers" loading="lazy">
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-3.jpg" alt="Reuzentrekkers" loading="lazy">
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-4.jpg" alt="Reuzentrekkers" loading="lazy">
+        </div>
         <div class="gallery-item" onclick="openLB(this)">
             <img src="afbeeldingen/trekkers-actie.jpg" alt="In actie" loading="lazy">
-            <figcaption data-lang="ms">In actie</figcaption>
-            <figcaption data-lang="nl">In actie</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-5.jpg" alt="Reuzentrekkers" loading="lazy">
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-6.jpg" alt="Reuzentrekkers" loading="lazy">
         </div>
         <div class="gallery-item" onclick="openLB(this)">
             <img src="afbeeldingen/reus-straat-close.jpg" alt="Govie van dichtbij" loading="lazy">
-            <figcaption>Van dichtbij</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-7.jpg" alt="Reuzentrekkers" loading="lazy">
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-8.jpg" alt="Reuzentrekkers" loading="lazy">
         </div>
         <div class="gallery-item" onclick="openLB(this)">
             <img src="afbeeldingen/trekkers-klaar.jpg" alt="Klaar voor de start" loading="lazy">
-            <figcaption data-lang="ms">Klaor veur de start</figcaption>
-            <figcaption data-lang="nl">Klaar voor de start</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-9.jpg" alt="Reuzentrekkers" loading="lazy">
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-10.jpg" alt="Reuzentrekkers" loading="lazy">
         </div>
         <div class="gallery-item" onclick="openLB(this)">
             <img src="afbeeldingen/trekkers-reus-detail.jpg" alt="Detail" loading="lazy">
-            <figcaption data-lang="ms">Vaan óngeraof</figcaption>
-            <figcaption data-lang="nl">Van onderaf</figcaption>
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-11.jpg" alt="Reuzentrekkers" loading="lazy">
+        </div>
+        <div class="gallery-item" onclick="openLB(this)">
+            <img src="afbeeldingen/2026/carnaval-2026-12.jpg" alt="Reuzentrekkers" loading="lazy">
         </div>
         <div class="gallery-item" onclick="openLB(this)">
             <img src="afbeeldingen/reuzen-nacht.jpg" alt="Bij nacht" loading="lazy">
-            <figcaption data-lang="ms">Bie nach</figcaption>
-            <figcaption data-lang="nl">Bij nacht</figcaption>
         </div>
         <div class="gallery-item" onclick="openLB(this)">
             <img src="afbeeldingen/reuzen-kar.jpg" alt="Het stalen frame" loading="lazy">
-            <figcaption data-lang="ms">'t Staole frame</figcaption>
-            <figcaption data-lang="nl">Het stalen frame</figcaption>
         </div>
         <div class="gallery-item" onclick="openLB(this)">
             <img src="afbeeldingen/pauze-zon.jpg" alt="Pauze" loading="lazy">
-            <figcaption data-lang="ms">Welverdeende pauze</figcaption>
-            <figcaption data-lang="nl">Welverdiende pauze</figcaption>
         </div>
         <div class="gallery-item" onclick="openLB(this)">
             <img src="afbeeldingen/pauze-clown.jpg" alt="Achter de schermen" loading="lazy">
-            <figcaption data-lang="ms">Achter de sjèrme</figcaption>
-            <figcaption data-lang="nl">Achter de schermen</figcaption>
         </div>
         <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/selfie-brand.jpg" alt="Selfie" loading="lazy">
-            <figcaption>Alaaf!</figcaption>
+            <img src="afbeeldingen/selfie-brand.jpg" alt="Alaaf!" loading="lazy">
         </div>
         <div class="gallery-item" onclick="openLB(this)">
             <img src="afbeeldingen/reuzen-muur.jpg" alt="Govies in rust" loading="lazy">
-            <figcaption data-lang="ms">De Govies in ruste</figcaption>
-            <figcaption data-lang="nl">De Govies in rust</figcaption>
         </div>
         <div class="gallery-item" onclick="openLB(this)">
             <img src="afbeeldingen/pauze-telefoon.jpg" alt="Pauze" loading="lazy">
-            <figcaption data-lang="ms">Eave pauze</figcaption>
-            <figcaption data-lang="nl">Even pauze</figcaption>
         </div>
         <div class="gallery-item" onclick="openLB(this)">
             <img src="afbeeldingen/historisch-zwartwit.jpg" alt="Historisch" loading="lazy">
-            <figcaption data-lang="ms">Vreuger tiede</figcaption>
-            <figcaption data-lang="nl">Vroeger tijden</figcaption>
         </div>
-    </div>
-
-    <h3 style="font-family: var(--font-head); margin: 2.5rem 0 1rem; font-size: 1.15rem; color: var(--text);">Carnaval 2026</h3>
-    <div class="gallery">
+        <!-- Historisch -->
         <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-1.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
+            <img src="afbeeldingen/historisch/govies-20-februari-1928-1e-optocht-in-jaren-nrc-21.02.1928..jpg" alt="1928" loading="lazy">
         </div>
         <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-2.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
+            <img src="afbeeldingen/historisch/govie-mooswief-foto-limb.-koerier-5-maart-1933.jpg" alt="1933" loading="lazy">
         </div>
         <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-3.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
+            <img src="afbeeldingen/historisch/govie-mooswief-sumatra-post-1-april-1935.jpg" alt="1935" loading="lazy">
         </div>
         <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-4.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
-        </div>
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-5.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
-        </div>
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-6.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
-        </div>
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-7.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
-        </div>
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-8.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
-        </div>
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-9.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
-        </div>
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-10.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
-        </div>
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-11.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
-        </div>
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/2026/carnaval-2026-12.jpg" alt="Carnaval 2026" loading="lazy">
-            <figcaption>Carnaval 2026</figcaption>
-        </div>
-    </div>
-
-    <h3 style="font-family: var(--font-head); margin: 2.5rem 0 1rem; font-size: 1.15rem; color: var(--text);" data-lang="ms">Historische krantefoto's</h3>
-    <h3 style="font-family: var(--font-head); margin: 2.5rem 0 1rem; font-size: 1.15rem; color: var(--text);" data-lang="nl">Historische krantenfoto's</h3>
-    <div class="gallery">
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/historisch/govies-20-februari-1928-1e-optocht-in-jaren-nrc-21.02.1928..jpg" alt="Govies 1928 NRC" loading="lazy">
-            <figcaption>NRC, 21-02-1928</figcaption>
-        </div>
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/historisch/govie-mooswief-foto-limb.-koerier-5-maart-1933.jpg" alt="Mooswief 1933" loading="lazy">
-            <figcaption>Limburger Koerier, 05-03-1933</figcaption>
-        </div>
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/historisch/govie-mooswief-sumatra-post-1-april-1935.jpg" alt="Mooswief 1935" loading="lazy">
-            <figcaption>Sumatra Post, 01-04-1935</figcaption>
-        </div>
-        <div class="gallery-item" onclick="openLB(this)">
-            <img src="afbeeldingen/historisch/govie-reus-soerabaijasch-handelsblad-10-april-1935.jpg" alt="Govie reus 1935" loading="lazy">
-            <figcaption>Soerabaijasch Handelsblad, 10-04-1935</figcaption>
+            <img src="afbeeldingen/historisch/govie-reus-soerabaijasch-handelsblad-10-april-1935.jpg" alt="1935" loading="lazy">
         </div>
     </div>
 </section>
@@ -891,6 +847,23 @@ function setLang(lang) {
 }
 setLang(currentLang);
 langBtn.addEventListener('click', () => setLang(currentLang === 'ms' ? 'nl' : 'ms'));
+
+// === COUNTDOWN ===
+function updateCountdown() {
+    const optocht = new Date('2027-02-07T13:33:00+01:00');
+    const now = new Date();
+    const diff = optocht - now;
+    
+    if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const el = document.getElementById('countdown');
+        const elNl = document.getElementById('countdown-nl');
+        if (el) el.textContent = days + ' daag';
+        if (elNl) elNl.textContent = days + ' dagen';
+    }
+}
+updateCountdown();
+setInterval(updateCountdown, 60000);
 </script>
 </body>
 </html>
